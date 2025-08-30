@@ -35,3 +35,6 @@ file(GLOB JNDCRASH_SOURCES ${CMAKE_SOURCE_DIR}/src/main/jni/*.c)
 add_library(jndcrash SHARED ${JNDCRASH_SOURCES})
 find_library(LOG_LIB log)
 target_link_libraries(jndcrash ndcrash ${LOG_LIB})
+
+# 16KB page alignment for Google Play requirements
+set_target_properties(jndcrash PROPERTIES LINK_FLAGS "-Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384")
