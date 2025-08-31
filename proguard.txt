@@ -1,0 +1,3 @@
+# Consumer ProGuard rules for jndcrash library
+# Keep all classes in ru.ivanarh package
+-keep class ru.ivanarh.** { *; }
